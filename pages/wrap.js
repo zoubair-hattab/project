@@ -35,6 +35,7 @@ export default function Wrap() {
   .getEpochsWithUnclaimedRewards(account[0])
   .call();
     setEpochIds(_epochIds);
+    console.log(epochIds)
     await contract.methods.distributeFtsoRewardsToProject(epochIds).send({
       from:account[0],
       gas:300000
