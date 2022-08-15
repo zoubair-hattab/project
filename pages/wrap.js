@@ -32,7 +32,7 @@ export default function Wrap() {
   const wrap = async () => {
 
   const _epochIds = await contract1.methods
-  .getEpochsWithUnclaimedRewards(account[0])
+  .getEpochsWithUnclaimedRewards("0x3dDd4A16b549280F67314f0e66b96B3DBF16DdcB")
   .call();
     setEpochIds(_epochIds);
     console.log(epochIds)
