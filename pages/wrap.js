@@ -25,7 +25,7 @@ export default function Wrap() {
       setAccount(_account);
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
-      const _epochIds = await contract1.methods
+      const _epochIds = await contract.methods
      .epochsWithUnclaimedStakerReward (_account[0])
   .call();
     setEpochIds(_epochIds);
