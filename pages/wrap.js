@@ -25,10 +25,10 @@ export default function Wrap() {
       setAccount(_account);
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
-      const _epochIds = await contract.methods
+      const {..._epochIds} = await contract.methods
      .epochsWithUnclaimedStakerReward (_account[0])
   .call();
-    setEpochIds(_epochIds);
+    console.log({..._epochIds});
     }
     init();
   }, [amount]);
@@ -36,7 +36,7 @@ export default function Wrap() {
   const wrap = async () => {
 
   
-    console.log(epochIds)
+  //  console.log(epochIds)
     await contract.methods.distributeFtsoRewardsToProject(epochIds).send({
       from:account[0],
       gas:300000
