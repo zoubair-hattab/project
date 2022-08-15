@@ -1,0 +1,155 @@
+/* Css Variable */
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan&family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --cf-gainsboro: #dcdcdc;
+  --cf-cultured: #f8f8f8;
+  --cf-gray65: #a6a6a6;
+  --cf-gray88: #e0e0e0;
+  --cf-spaces: #f9f9f9;
+  --cf-gray6f: #6f6c90;
+  --cf-mainly-red: #e10000;
+  --cf-purple: #4200ff;
+  --cf-gray5: #cdbff5;
+  --libre-bodoni: "Libre Bodoni";
+  --roboto-font: "roboto";
+}
+
+/* Golbal Color*/
+.cf-gainsboro {
+  color: var(--cf-gainsboro);
+}
+.cf-cultured {
+  color: var(--cf-cultured);
+}
+.cf-grey65 {
+  color: var(--cf-gray65);
+}
+.cf-gray88 {
+  color: var(--cf-gray88);
+}
+.cf-spaces {
+  color: var(--cf-spaces);
+}
+.cf-mainly-red {
+  color: var(--cf-mainly-red);
+}
+.cf-gray6f {
+  color: var(--cf-gray6f);
+}
+
+/* Golbal text styling*/
+
+.text-bodoni {
+  font-family: var(--libre-bodoni) !important;
+}
+.text-roboto {
+  font-family: var(--roboto-font);
+}
+
+/*Golbal backgorund color*/
+.bg-transparent{
+  background-color: transparent;
+}
+.bg-gainsboro {
+  background-color: var(--cf-gainsboro);
+}
+.bg-cultured {
+  background-color: var(--cf-cultured);
+}
+.bg-gray65 {
+  background-color: var(--cf-gray65);
+}
+.bg-gray88 {
+  background-color: var(--cf-gray88);
+}
+.bg-spaces {
+  background-color: var(--cf-spaces);
+}
+.bg-mainly-red {
+  background-color: var(--cf-mainly-red);
+}
+.bg-purple {
+  background-color: var(--cf-purple);
+}
+.bg-gray5 {
+  background-color: var(--cf-gray5);
+}
+
+/* Global styling Button */
+.btn {
+  box-shadow: none !important;
+}
+
+a:hover {
+  color: black !important;
+  cursor: pointer;
+}
+p {
+  margin-bottom: 0rem;
+}
+/* Global button */
+.btn-black {
+  background-color: black;
+  color: white;
+}
+.btn-black:hover {
+  color: white;
+}
+/* Global Form Input  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.form-control {
+  border: none;
+}
+.form-control:focus {
+  box-shadow: none;
+  border: none;
+  background-color: var(--cf-gray88);
+}
+.form-control.is-invalid {
+  box-shadow: none;
+  border: 1px solid #fe0f0f;
+}
+.form-control.is-invalid:focus {
+  box-shadow: none;
+  border: 1px solid #fe0f0f;
+}
+.form-select:focus {
+  border-color: transparent;
+  box-shadow: none;
+}
+.form-check-input:focus {
+  border-color: black;
+  box-shadow: none;
+}
+.form-check-input:checked[type="radio"] {
+  background-image: url("/images/svg/select_circle.svg");
+}
+.form-check-input:checked {
+  background-color: white;
+  border-color: black;
+}
+.dropzone {
+  border: 1px dashed black;
+  background-color: var(--cf-gainsboro);
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Testing  */
+body {
+  background-color: #eee;
+}
+.rounded-20 {
+  border-radius: 20px;
+}

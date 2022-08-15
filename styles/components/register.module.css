@@ -1,0 +1,137 @@
+.form {
+  width: 60%;
+}
+
+.formContent {
+  border: 1px solid #bdbdbd;
+  box-shadow: 0px 5px 16px rgba(8, 15, 52, 0.06);
+  border-radius: 34px;
+  padding: 25px;
+}
+
+.btn {
+  width: 150px;
+}
+
+.inputTextForm {
+  background-color: var(--cf-gray88);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border: none;
+}
+
+.inputGroup {
+  width: 180px;
+}
+
+.stepsForm {
+  border: 1px solid #000000;
+  padding: 20px;
+  border-radius: 30px;
+  /* width: 550px; */
+  margin: 25px auto 0px auto;
+}
+
+.stepsForm {
+  border-color: #d9d9d9;
+}
+
+.isSelected,
+.isFocused {
+  border-color: black;
+}
+
+
+/* styling the selectCompaignTypeForm component */
+
+.formSelect {
+  background: #d9d9d9;
+  border-radius: 10px;
+  height: 70px;
+  border: none;
+}
+
+/* styling the emailAddressForm component */
+.formControl {
+  background-color: var(--cf-gray88);
+  border-radius: 10px;
+  height: 45px;
+}
+
+/* styling the phoneNumberForm component */
+.phoneNumberSelect {
+  background-color: var(--cf-gray88);
+  width: 150px;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+/* styling the passwordForm component */
+.formPassword {
+  border-right: none;
+}
+
+.icons {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* styling the roleCompanyForm component */
+.labelExeplination {
+  font-size: 15px;
+  color: var(--cf-gray65);
+}
+
+/* styling the verifyIdentity component*/
+.ulCircle {
+  border: 1px solid black;
+  height: 18px;
+  width: 18px;
+  font-size: 15px;
+}
+
+.radioInput {
+  border: 1px solid #bdbdbd;
+  height: 65px;
+}
+
+.inputRadioButton {
+  opacity: 0;
+}
+
+.iconsRadio {
+  background-color: var(--cf-gray65);
+  color: white;
+  font-size: 25px;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  padding: 3px;
+  margin-right: 10px;
+}
+
+.formRadioLabel {
+  color: var(--cf-gray65)
+}
+
+.inputRadioButton:checked+.formRadioLabel {
+  color: black;
+}
+
+.inputRadioButton:checked+.formRadioLabel .iconsRadio {
+  background-color: black;
+}
+
+
+/* Responsive desgin */
+/* small devices */
+@media (max-width: 767.98px) {}
+
+/* medium devices */
+@media (max-width: 991.98px) {
+  .form {
+    width: 100%;
+  }
+}

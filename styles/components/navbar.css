@@ -1,0 +1,75 @@
+.header {
+  position: relative;
+  background-color: black;
+  height: 100vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--grey-color);
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.video-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  padding-top: 120px;
+}
+
+.ripple {
+  margin: auto;
+  margin-top: 20%;
+  background-color: #fff;
+  animation: rippleAnimation 2s linear 1s infinite;
+  animation: rippleAnimation 2s linear 1s infinite;
+}
+
+@keyframes rippleAnimation {
+  0% {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.2),
+      0 0 0 0.5rem rgba(255, 255, 255, 0.2), 0 0 0 1rem rgba(255, 255, 255, 0.2);
+  }
+
+  100% {
+    box-shadow: 0 0 0 1.5rem rgba(255, 255, 255, 0.2),
+      0 0 0 3rem rgba(255, 255, 255, 0.2), 0 0 0 5rem rgba(255, 255, 255, 0);
+  }
+}
+
+/* Responsive desgin */
+/* small devices */
+@media (max-width: 767.98px) {}
+
+/* medium devices */
+@media (max-width: 991.98px) {
+  .header {
+    height: 60vh;
+  }
+
+  .ripple {
+    margin-top: 22%;
+  }
+}

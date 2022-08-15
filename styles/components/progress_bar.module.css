@@ -1,0 +1,10 @@
+.progressCore {
+    border-radius: 0px;
+    height: 5px;
+    margin: 10px 0px;
+    background-color: var(--cf-cultured);
+}
+
+.bar {
+    background-color: var(--cf-purple);
+}

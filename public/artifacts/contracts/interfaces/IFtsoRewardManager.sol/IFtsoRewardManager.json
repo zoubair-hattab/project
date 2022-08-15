@@ -1,0 +1,132 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IFtsoRewardManager",
+  "sourceName": "contracts/interfaces/IFtsoRewardManager.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "active",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "_recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_rewardEpochs",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "claimReward",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_rewardAmount",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_beneficiary",
+          "type": "address"
+        }
+      ],
+      "name": "getEpochsWithUnclaimedRewards",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_epochIds",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_beneficiary",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_rewardEpoch",
+          "type": "uint256"
+        }
+      ],
+      "name": "getStateOfRewards",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "_dataProviders",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_rewardAmounts",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "bool[]",
+          "name": "_claimed",
+          "type": "bool[]"
+        },
+        {
+          "internalType": "bool",
+          "name": "_claimable",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "oldFtsoRewardManager",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "wNat",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

@@ -1,0 +1,50 @@
+.widthShowComponent {
+    min-width: 6rem;
+}
+
+.hrefHover {
+    text-decoration: none;
+}
+
+.hrefHover:hover {
+    text-decoration: underline;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    top: 0;
+    background: white;
+    padding: 5px 0px;
+    animation: fadeInDown 0.5s ease-in-out 0s 1 normal none running;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Responsive desgin
+/* small devices */
+@media (max-width: 767.98px) {
+    .textCenter {
+        text-align: center;
+    }
+
+    .paddingText {
+        padding: 0rem 1.5rem;
+    }
+
+    .flexSmallReverse {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
