@@ -11,7 +11,7 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
 
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0x0fa795e0f25ED0FED4c9398a603f25e9c3b338Ad");
+   const  contract=   new web3.eth.Contract(abi.abi,"0x772E4727D1AfDD1aa8eCDb36E34266Ba258B6180");
 
    console.log(contract.methods)
   useEffect(() => {
