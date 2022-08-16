@@ -22,12 +22,12 @@ export default function Wrap() {
     }
     init();
   }, [amount]);
-
+console.log(provider)
 
   const change = async () => {
     await contract.methods
 
-    .changeDelegations(provider,[10000])
+    .changeDelegations([provider],[10000])
     .send({
       from: account[0],
      // value: amount * 10 ** 18,
