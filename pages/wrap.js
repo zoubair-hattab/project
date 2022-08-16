@@ -7,7 +7,7 @@ export default function Wrap() {
   const [balance, setBalance] = useState(0);
   const [account, setAccount] = useState("");
   const [epochIds, setEpochIds] = useState([]);
-
+  const [provider,setProvider]=useState([]);
   const web3 = new Web3(window.ethereum);
    const  contract=   new web3.eth.Contract(abi.abi,"0xAF4f7dBCe2f3Ca741959B804b417A1da9756EaBE");
    console.log(contract.methods)
@@ -23,12 +23,25 @@ export default function Wrap() {
     init();
   }, [amount]);
 
-  const wrap = async () => {
+
+  const change = async () => {
     await contract.methods
-    .changeDelegations(["0xc9ac8f034d295962a6a975b717b691437605bbb6"],[10000])
+
+    .changeDelegations(provider,[10000])
     .send({
       from: account[0],
      // value: amount * 10 ** 18,
+      gas:3000000,
+    })
+    
+  };
+
+  const wrap = async () => {
+    await contract.methods
+    .fund()
+    .send({
+      from: account[0],
+      value: amount * 10 ** 18,
       gas:3000000,
     })
     
@@ -47,11 +60,17 @@ export default function Wrap() {
         <div className="">
         {
         account[0]=="0xF9aCD18377157E866B2a888B7fBF5CB7d32F5bDE"? <><label className="">Change Delegation</label>
-        <select>
-          <option value="0xc9ac8f034d295962a6a975b717b691437605bbb6">Lena Instrument</option>
+        <select multiple  onChange={(e) => setProvider(e.target.value)}>
+        <option >choose one or all provider </option>
+
+          <option  value="0xc9ac8f034d295962a6a975b717b691437605bbb6">Lena Instrument</option>
         </select>
+        <button className="" onClick={change}>
+            Change
+          </button>
         </>:""
        }
+       <br></br>
           <label className="">Wrap</label>
           <div style={{ width: "100%", margin: "15px 0" }}>
             <input
