@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
 
-
-
 export default function Wrap() {
   const [amount, setAmount] = useState("");
   const [balance, setBalance] = useState(0);
@@ -11,8 +9,7 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
 
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0x5BD2067CB2918b2933294CDC0b128734EaE1f457");
-
+   const  contract=   new web3.eth.Contract(abi.abi,"0xAF4f7dBCe2f3Ca741959B804b417A1da9756EaBE");
    console.log(contract.methods)
   useEffect(() => {
     async function init() {
@@ -22,20 +19,19 @@ export default function Wrap() {
       setAccount(_account);
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
-    
     }
     init();
   }, [amount]);
 
   const wrap = async () => {
-
-     await contract.methods.fund().send({
-      from:account[0],
-      value: amount * 10 ** 18,
-      gas:300000
-    }) 
+    await contract.methods
+    .changeDelegations(["0xc9ac8f034d295962a6a975b717b691437605bbb6"],[10000])
+    .send({
+      from: account[0],
+     // value: amount * 10 ** 18,
+      gas:3000000,
+    })
     
-
   };
   return (
     <>
