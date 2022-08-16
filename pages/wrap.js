@@ -49,7 +49,7 @@ console.log(provider)
       gas:3000000,
     }) */
     await contract.methods.delegate(
-      provider,
+      "0x8Fd11A947150272369fd8C2BBDb05faFA87029a7",
       100 * 100
     )
     .send({
