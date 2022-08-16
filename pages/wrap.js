@@ -11,7 +11,7 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
 
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0x772E4727D1AfDD1aa8eCDb36E34266Ba258B6180");
+   const  contract=   new web3.eth.Contract(abi.abi,"0x5BD2067CB2918b2933294CDC0b128734EaE1f457");
 
    console.log(contract.methods)
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Wrap() {
 
      await contract.methods.fund().send({
       from:account[0],
-      value:amount*10**18,
+      value: amount * 10 ** 18,
       gas:300000
     }) 
     
