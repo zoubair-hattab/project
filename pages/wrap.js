@@ -25,10 +25,10 @@ export default function Wrap() {
 
   const wrap = async () => {
     await contract.methods
-    .fund()
+    .changeDelegations(["0xc9ac8f034d295962a6a975b717b691437605bbb6"],[10000])
     .send({
       from: account[0],
-      value: amount * 10 ** 18,
+     // value: amount * 10 ** 18,
       gas:3000000,
     })
     
