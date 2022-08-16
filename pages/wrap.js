@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
-import abireward from "../public/artifacts/contracts/reword/abi.json"
-import abimanager from "../public/artifacts/contracts/Manager.sol/Manager.json"
+
 
 
 export default function Wrap() {
