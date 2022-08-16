@@ -12,9 +12,7 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
 
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0x9EB1c5ADC803D9Ef9E921062B0866aF90ce00B8C");
-   const  contract1=   new web3.eth.Contract(abireward,"0xc5738334b972745067fFa666040fdeADc66Cb925");
-   const  contract2=   new web3.eth.Contract(abimanager.abi,"0x13eFbD633570678603d994959f2131d2153A508C");
+   const  contract=   new web3.eth.Contract(abi.abi,"0x13379D181554bd1179AEcb974bf341840f625406");
 
    console.log(contract.methods)
   useEffect(() => {
@@ -25,10 +23,7 @@ export default function Wrap() {
       setAccount(_account);
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
-      const _epochIds = await contract1.methods
-      .getEpochsWithUnclaimedRewards (account[0])
-      .call();
-    setEpochIds(_epochIds);
+    
     }
     init();
   }, [amount]);
@@ -36,8 +31,7 @@ export default function Wrap() {
   const wrap = async () => {
 
   
-    console.log(epochIds)
-    await contract.methods.withdrawInitialCapital().send({
+    await contract.methods.changeDelegations("0xc9ac8f034d295962a6a975b717b691437605bbb6",10000).send({
       from:account[0],
       gas:300000
     })
