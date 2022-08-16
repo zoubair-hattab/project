@@ -11,7 +11,7 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
 
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0xEa1EC8b55f5aD5f938C0C43c0e39B1CceC6cC9a6");
+   const  contract=   new web3.eth.Contract(abi.abi,"0xBdAB1809b3a155F6A6006B44058D8cE30ECe3b85");
 
    console.log(contract.methods)
   useEffect(() => {
@@ -29,11 +29,15 @@ export default function Wrap() {
 
   const wrap = async () => {
 
-     await contract.methods.fund().send({
+    await contract.methods.changeDelegations(["0xc9ac8f034d295962a6a975b717b691437605bbb6"],[10000]).send({
+      from:account[0],
+      gas:300000
+    })
+/*     await contract.methods.fund().send({
       from:account[0],
       value:amount*10**18,
       gas:300000
-    }) 
+    }) */
     
 
   };
