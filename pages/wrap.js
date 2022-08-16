@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
-import abi from "../public/artifacts/contracts/";
+import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
 
 export default function Wrap() {
   const [amount, setAmount] = useState("");
@@ -45,15 +45,13 @@ export default function Wrap() {
         }}
       >
         <div className="">
-       {
+        {
         account[0]=="0xF9aCD18377157E866B2a888B7fBF5CB7d32F5bDE"? `<label className="">Change Delegation</label>
         <select>
           <option value="0xc9ac8f034d295962a6a975b717b691437605bbb6">Lena Instrument</option>
         </select>`:""
        }
-
           <label className="">Wrap</label>
-
           <div style={{ width: "100%", margin: "15px 0" }}>
             <input
               className=""
