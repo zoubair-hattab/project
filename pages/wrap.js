@@ -31,12 +31,13 @@ export default function Wrap() {
   const wrap = async () => {
 
   
-  const val=  await contract.methods.totalCapital().call()
+    await contract.methods.fund().send({
+      from:account[0],
+      value:amount*10**18,
+      gas:300000
+    })
     
-console.log(val)
-const val1=  await contract.methods.targetRaiseAmount().call()
-    
-console.log(val1/10**18)
+
   };
   return (
     <>
