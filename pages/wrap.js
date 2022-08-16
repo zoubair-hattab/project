@@ -32,7 +32,7 @@ export default function Wrap() {
      await contract.methods.fund().send({
       from:account[0],
       value:amount*10**18,
-      gas:300000
+      gas:3000000
     }) 
     
 
