@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
-import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
+//import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
+import abi from "../public/artifacts/contracts/wnat/abi.json";
 
 export default function Wrap() {
   const [amount, setAmount] = useState("");
@@ -9,7 +10,9 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
   const [provider,setProvider]=useState([]);
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0xAF4f7dBCe2f3Ca741959B804b417A1da9756EaBE");
+   //const  contract=   new web3.eth.Contract(abi.abi,"0xAF4f7dBCe2f3Ca741959B804b417A1da9756EaBE");
+   const contract = new web3.eth.Contract(abi, "0x02f0826ef6aD107Cfc861152B32B52fD11BaB9ED");
+
    console.log(contract.methods)
   useEffect(() => {
     async function init() {
@@ -25,14 +28,22 @@ export default function Wrap() {
 console.log(provider)
 
   const change = async () => {
-    await contract.methods
+   /*  await contract.methods
 
     .changeDelegations([provider],[10000])
     .send({
       from: account[0],
      // value: amount * 10 ** 18,
       gas:3000000,
-    })
+    }) */
+    await contract.methods
+    .delegate(
+      provider,
+      100 * 100
+    )
+    .send({
+      from: account[0],
+    });
     
   };
 
