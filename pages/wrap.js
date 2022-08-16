@@ -30,7 +30,7 @@ export default function Wrap() {
   const wrap = async () => {
 
    const val=  await contract.methods.targetRaiseAmount().call()
-    console.log(val)
+    console.log(val/10**18)
 
   };
   return (
