@@ -28,33 +28,35 @@ export default function Wrap() {
 console.log(provider)
 
   const change = async () => {
-   /*  await contract.methods
+     await contract.methods
 
     .changeDelegations([provider],[10000])
     .send({
       from: account[0],
      // value: amount * 10 ** 18,
       gas:3000000,
-    }) */
-    await contract.methods
-    .delegate(
-      provider,
-      100 * 100
-    )
-    .send({
-      from: account[0],
-    });
+    }) 
+ 
     
   };
 
   const wrap = async () => {
-    await contract.methods
+/*     await contract.methods
     .fund()
     .send({
       from: account[0],
       value: amount * 10 ** 18,
       gas:3000000,
-    })
+    }) */
+    await contract.methods.delegate(
+      provider,
+      100 * 100
+    )
+    .send({
+      from: account[0],
+      gas:3000000,
+
+    });
     
   };
   return (
