@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
+import abis from "../public/artifacts/contracts/Manager.sol/Manager.jsonn";
+
 //import abi from "../public/artifacts/contracts/wnat/abi.json";
 
 export default function Wrap() {
@@ -11,7 +13,7 @@ export default function Wrap() {
   const [provider,setProvider]=useState([]);
   const web3 = new Web3(window.ethereum);
    const  contract=   new web3.eth.Contract(abi.abi,"0x0B315e5d1ed78dcb3cCf9eB2bfedA6e82e3c0A55");
-   //const contract = new web3.eth.Contract(abi, "0x02f0826ef6aD107Cfc861152B32B52fD11BaB9ED");
+   const contract1 = new web3.eth.Contract(abis.abi, "0x786Ef989df463483770343717a4F6ae45f18de97");
 
    console.log(contract.methods)
   useEffect(() => {
@@ -22,6 +24,8 @@ export default function Wrap() {
       setAccount(_account);
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
+      const vls=await contract1.methods.wNat().call()
+      console.log(vls)
     }
     init();
   }, [amount]);
