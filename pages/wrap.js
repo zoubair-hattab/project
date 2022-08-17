@@ -31,7 +31,7 @@ export default function Wrap() {
 console.log(provider)
 
   const change = async () => {
-     await contract.methods.changeDelegations([provider],[5000,2500,2500])
+     await contract.methods.changeDelegations([provider],[10000])
     .send({
       from: account[0],
      // value: amount * 10 ** 18,
@@ -42,11 +42,16 @@ console.log(provider)
   };
 
   const wrap = async () => {
-    await contract.methods
+/*     await contract.methods
     .fund()
     .send({
       from: account[0],
       value: amount * 10 ** 18,
+      gas:3000000,
+    })  */
+    await contract.methods.skimExtraBalance().send({
+      from: account[0],
+    //  value: amount * 10 ** 18,
       gas:3000000,
     }) 
 
@@ -66,12 +71,9 @@ console.log(provider)
         <div className="">
         {
         account[0]=="0xF9aCD18377157E866B2a888B7fBF5CB7d32F5bDE"? <><label className="">Change Delegation</label>
-        <select   onChange={(e) => setProvider([...provider,e.target.value])}>
+        <select   onChange={(e) => setProvider(e.target.value)}>
         <option >choose one or all provider </option>
           <option  value="0xc9ac8f034d295962a6a975b717b691437605bbb6">Lena Instrument</option>
-          <option  value="0x879fb0b354733674fd403286ebb2eb17ef97e5ae">sToadz FTSO</option>
-          <option  value="0xde4051b333b3063fd28267cd4412dd25233d0ae1">Flare Dienst</option>
-        
         </select>
         <button className="" onClick={change}>
             Change
