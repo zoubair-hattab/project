@@ -31,7 +31,7 @@ export default function Wrap() {
 console.log(provider)
 
   const change = async () => {
-     await contract.methods.changeDelegations([provider],[5000,2500,2500])
+     await contract.methods.changeDelegations(provider,[5000,2500,2500])
     .send({
       from: account[0],
      // value: amount * 10 ** 18,
