@@ -26,9 +26,9 @@ export default function Wrap() {
       setBalance(_balance);
 
       const _epochIds = await contract1.methods
-      .getEpochsWithUnclaimedRewards(_account[0])
+      .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
       .call();
-      setEpochIds(_epochIds);
+      setEpochIds("epochIds",_epochIds);
      
     }
     init();
