@@ -42,18 +42,14 @@ console.log(provider)
   };
 
   const wrap = async () => {
-/*     await contract.methods
+    await contract.methods
     .fund()
     .send({
       from: account[0],
       value: amount * 10 ** 18,
       gas:3000000,
-    })  */
-    await contract.methods.skimExtraBalance().send({
-      from: account[0],
-    //  value: amount * 10 ** 18,
-      gas:3000000,
     }) 
+   
 
     
   };
