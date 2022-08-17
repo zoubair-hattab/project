@@ -109,6 +109,8 @@ console.log(epochIds)
           <button className="" onClick={wrap}>
             Wrap
           </button>
+          <br></br>
+          <br></br>
           <button className="" onClick={claim}>
           Claim Rewards
           </button>
