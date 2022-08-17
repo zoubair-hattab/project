@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
-//import abis from "../public/artifacts/contracts/Manager.sol/Manager.json";
-
+import manager from "../public/artifacts/contracts/Manager.sol/Manager.json";
 import abis from "../public/artifacts/contracts/wnat/abi.json";
 
 export default function Wrap() {
@@ -11,8 +10,12 @@ export default function Wrap() {
   const [account, setAccount] = useState("");
   const [epochIds, setEpochIds] = useState([]);
   const [provider,setProvider]=useState([]);
+  const [fee,setFee]=useState([]);
+  const [bips,setBips]=useState([]);
+
   const web3 = new Web3(window.ethereum);
    const  contract=   new web3.eth.Contract(abi.abi,"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A");
+   const  contract3=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
    const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
 
    console.log(contract.methods)
@@ -45,6 +48,7 @@ console.log(epochIds)
  
     
   };
+  
 
   const claim = () => {
     contract.methods
@@ -67,6 +71,30 @@ console.log(epochIds)
 
     
   };
+
+  const setPlatformFeeBips = async () => {
+    await contract2.methods
+    .setPlatformFeeBips(bips)
+    .send({
+      from: account[0],
+      gas:3000000,
+    }) 
+   
+
+    
+  };
+  const setPlatformFeeAccount = async () => {
+    await contract2.methods
+    .setPlatformFeeAccount(fee)
+    .send({
+      from: account[0],
+      value: amount * 10 ** 18,
+      gas:3000000,
+    }) 
+   
+
+    
+  };
   return (
     <>
       <div
@@ -79,7 +107,21 @@ console.log(epochIds)
         }}
       >
         <div className="">
+        <button className="" onClick={setPlatformFeeBips}>
+        setPlatformFeeBips
+          </button>
+          <input type="text" onChange={(e) => setBips(e.target.value)} />
+          <br/>
+          <br/>
+          <button className="" onClick={setPlatformFeeAccount}>
+        setPlatformFeeAccount
+          </button>
+          <input type="text"  onChange={(e) => setFee(e.target.value)}/>
+          <br/>
+          <br/>
+
         {
+        
         account[0]=="0xC4d34d47b4e20CF1884646f877fA3Fe6192c4B26"? <><label className="">Change Delegation</label>
         <select   onChange={(e) => setProvider(e.target.value)}>
         <option >choose one or all provider </option>
