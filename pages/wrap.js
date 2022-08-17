@@ -32,6 +32,8 @@ export default function Wrap() {
       .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
       .call();
       setEpochIds("epochIds",_epochIds);
+    const valus=  await contract2.methods. getDistributions().call()
+      console.log(valus)
      
     }
     init();
