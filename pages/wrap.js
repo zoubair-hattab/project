@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
-import abis from "../public/artifacts/contracts/Manager.sol/Manager.jsonn";
+import abis from "../public/artifacts/contracts/Manager.sol/Manager.json";
 
 //import abi from "../public/artifacts/contracts/wnat/abi.json";
 
