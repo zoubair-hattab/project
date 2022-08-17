@@ -15,7 +15,7 @@ export default function Wrap() {
 
   const web3 = new Web3(window.ethereum);
    const  contract=   new web3.eth.Contract(abi.abi,"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A");
-   const  contract3=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
+   const  contract2=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
    const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
 
    console.log(contract.methods)
@@ -110,12 +110,14 @@ console.log(epochIds)
         <button className="" onClick={setPlatformFeeBips}>
         setPlatformFeeBips
           </button>
+          <br/>
           <input type="text" onChange={(e) => setBips(e.target.value)} />
           <br/>
           <br/>
           <button className="" onClick={setPlatformFeeAccount}>
         setPlatformFeeAccount
           </button>
+          <br/>
           <input type="text"  onChange={(e) => setFee(e.target.value)}/>
           <br/>
           <br/>
