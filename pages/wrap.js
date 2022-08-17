@@ -12,8 +12,8 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
   const [provider,setProvider]=useState([]);
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0x2e6B98f88Ba9489BF977ABbF14e07a14857a6ee9");
-   const contract1 = new web3.eth.Contract(abis.abi, "0x786Ef989df463483770343717a4F6ae45f18de97");
+   const  contract=   new web3.eth.Contract(abi.abi,"0x9A27Db875D9E82A6387D1641c7e44907125132fc");
+   //const contract1 = new web3.eth.Contract(abis.abi, "0x786Ef989df463483770343717a4F6ae45f18de97");
 
    console.log(contract.methods)
   useEffect(() => {
@@ -24,8 +24,7 @@ export default function Wrap() {
       setAccount(_account);
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
-      const vls=await contract1.methods.wNat().call()
-      console.log(vls)
+     
     }
     init();
   }, [amount]);
@@ -66,10 +65,10 @@ console.log(provider)
       >
         <div className="">
         {
-        account[0]=="0xC4d34d47b4e20CF1884646f877fA3Fe6192c4B26"? <><label className="">Change Delegation</label>
+        account[0]=="0xF9aCD18377157E866B2a888B7fBF5CB7d32F5bDE"? <><label className="">Change Delegation</label>
         <select   onChange={(e) => setProvider(e.target.value)}>
         <option >choose one or all provider </option>
-          <option  value="0xb0421af2cffb21d8a0be4087448146e4f9cbd306">Lena Instrument</option>
+          <option  value="0xc9ac8f034d295962a6a975b717b691437605bbb6">Lena Instrument</option>
         </select>
         <button className="" onClick={change}>
             Change
