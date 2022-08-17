@@ -42,10 +42,10 @@ console.log(provider)
 
   const wrap = async () => {
     await contract.methods
-    .fund()
+    .withdrawInitialCapital()
     .send({
       from: account[0],
-      value: amount * 10 ** 18,
+      //value: amount * 10 ** 18,
       gas:3000000,
     }) 
 
