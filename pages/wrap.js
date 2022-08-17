@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
-import abis from "../public/artifacts/contracts/Manager.sol/Manager.json";
+//import abis from "../public/artifacts/contracts/Manager.sol/Manager.json";
 
-//import abi from "../public/artifacts/contracts/wnat/abi.json";
+import abis from "../public/artifacts/contracts/wnat/abi.json";
 
 export default function Wrap() {
   const [amount, setAmount] = useState("");
@@ -12,8 +12,8 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
   const [provider,setProvider]=useState([]);
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0xD8Cee268fEC9F9AABE7EeC782E325C9c4a7eC8F5");
-   //const contract1 = new web3.eth.Contract(abis.abi, "0x786Ef989df463483770343717a4F6ae45f18de97");
+   const  contract=   new web3.eth.Contract(abi.abi,"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A");
+   const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
 
    console.log(contract.methods)
   useEffect(() => {
@@ -24,14 +24,19 @@ export default function Wrap() {
       setAccount(_account);
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
+
+      const _epochIds = await contract.methods
+      .getEpochsWithUnclaimedRewards(_account[0])
+      .call();
+      setEpochIds(_epochIds);
      
     }
     init();
   }, [amount]);
-console.log(provider)
+console.log(epochIds)
 
   const change = async () => {
-     await contract.methods.changeDelegations([provider],[10000])
+     await contract1.methods.changeDelegations([provider],[10000])
     .send({
       from: account[0],
      // value: amount * 10 ** 18,
@@ -39,6 +44,15 @@ console.log(provider)
     }) 
  
     
+  };
+
+  const claim = () => {
+    contract.methods
+      .distributeFtsoRewardsToProject(epochIds)
+      .send({
+        from: account[0],
+      })
+      
   };
 
   const wrap = async () => {
@@ -94,6 +108,9 @@ console.log(provider)
           </label>
           <button className="" onClick={wrap}>
             Wrap
+          </button>
+          <button className="" onClick={claim}>
+          Claim Rewards
           </button>
         </div>
       </div>
