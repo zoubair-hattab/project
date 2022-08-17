@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Web3 from "web3";
-import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
+import abi from "../public/artifacts/contracts/Manager.sol/Manager.json";
 //import abi from "../public/artifacts/contracts/wnat/abi.json";
 
 export default function Wrap() {
@@ -10,7 +10,7 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
   const [provider,setProvider]=useState([]);
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0x488Ee46E0C3d7E95B1ECec8110C9796d5D964716");
+   const  contract=   new web3.eth.Contract(abi.abi,"0x75A87e970c13450216D2B920A3eaEf306cdD9DbE");
    //const contract = new web3.eth.Contract(abi, "0x02f0826ef6aD107Cfc861152B32B52fD11BaB9ED");
 
    console.log(contract.methods)
@@ -41,13 +41,10 @@ console.log(provider)
   };
 
   const wrap = async () => {
-    await contract.methods
-    .withdrawInitialCapital()
-    .send({
-      from: account[0],
-      //value: amount * 10 ** 18,
-      gas:3000000,
-    }) 
+   const val= await contract.methods
+    .wNat()
+    .call()
+    console.log(val)
 
     
   };
