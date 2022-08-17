@@ -12,7 +12,7 @@ export default function Wrap() {
   const [epochIds, setEpochIds] = useState([]);
   const [provider,setProvider]=useState([]);
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0x0B315e5d1ed78dcb3cCf9eB2bfedA6e82e3c0A55");
+   const  contract=   new web3.eth.Contract(abi.abi,"0x2e6B98f88Ba9489BF977ABbF14e07a14857a6ee9");
    const contract1 = new web3.eth.Contract(abis.abi, "0x786Ef989df463483770343717a4F6ae45f18de97");
 
    console.log(contract.methods)
