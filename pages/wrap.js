@@ -19,8 +19,7 @@ export default function Wrap() {
    const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
    const  contract2=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
    const  contract3=   new web3.eth.Contract(distrib,"0x32c6379B2978A9aB75993cA82e3ADc77dd50010C");
-
-   console.log(contract.methods)
+console.log(contract3.methods)
   useEffect(() => {
     async function init() {
       const chainId = await web3.eth.getChainId();
