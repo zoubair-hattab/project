@@ -79,7 +79,7 @@ if(chainId==19){
    
   }
   else{
-    alert("you should be switch you metamask to network Sonbird")
+    console.log("you should be switch you metamask to network Sonbird")
   }
     
   };
