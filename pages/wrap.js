@@ -29,12 +29,12 @@ console.log(contract3.methods)
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
 
-      const _epochIds = await contract1.methods
+    /*   const _epochIds = await contract1.methods
       .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
       .call();
       setEpochIds("epochIds",_epochIds);
     const valus=  await contract2.methods.getDistributions().call()
-      console.log("getDistributions",valus)
+      console.log("getDistributions",valus) */
       const dis=  await contract3.methods.getCurrentMonth().call()
       console.log("getCurrentMonth",dis)
       const disp=  await contract3.methods.getMonthToExpireNext().call()
