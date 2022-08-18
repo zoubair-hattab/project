@@ -15,9 +15,9 @@ export default function Wrap() {
   const [bips,setBips]=useState([]);
 
   const web3 = new Web3(window.ethereum);
-   const  contract=   new web3.eth.Contract(abi.abi,"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A");
-   const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
-   const  contract2=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
+  // const  contract=   new web3.eth.Contract(abi.abi,"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A");
+   //const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
+   //const  contract2=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
    const  contract3=   new web3.eth.Contract(distrib,"0x32c6379B2978A9aB75993cA82e3ADc77dd50010C");
 console.log(contract3.methods)
   useEffect(() => {
@@ -46,58 +46,58 @@ console.log(contract3.methods)
 console.log(epochIds)
 
   const change = async () => {
-     await contract1.methods.changeDelegations([provider],[10000])
+   /*   await contract1.methods.changeDelegations([provider],[10000])
     .send({
       from: account[0],
      // value: amount * 10 ** 18,
       gas:3000000,
-    }) 
+    })  */
  
     
   };
   
 
   const claim = () => {
-    contract.methods
+/*     contract.methods
       .distributeFtsoRewardsToProject(epochIds)
       .send({
         from: account[0],
-      })
+      }) */
       
   };
 
   const wrap = async () => {
-    await contract.methods
+  /*   await contract.methods
     .fund()
     .send({
       from: account[0],
       value: amount * 10 ** 18,
       gas:3000000,
-    }) 
+    })  */
    
 
     
   };
 
   const setPlatformFeeBips = async () => {
-    await contract2.methods
+   /*  await contract2.methods
     .setPlatformFeeBips(bips)
     .send({
       from: account[0],
       gas:3000000,
-    }) 
+    })  */
    
 
     
   };
   const setPlatformFeeAccount = async () => {
-    await contract2.methods
+  /*   await contract2.methods
     .setPlatformFeeAccount(fee)
     .send({
       from: account[0],
       value: amount * 10 ** 18,
       gas:3000000,
-    }) 
+    })  */
    
 
     
