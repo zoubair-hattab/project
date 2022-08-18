@@ -3,6 +3,7 @@ import Web3 from "web3";
 import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
 import manager from "../public/artifacts/contracts/Manager.sol/Manager.json";
 import abis from "../public/artifacts/contracts/wnat/abi.json";
+import distrib from "../public/artifacts/contracts/distrubtion/distribution.json";
 
 export default function Wrap() {
   const [amount, setAmount] = useState("");
@@ -15,8 +16,9 @@ export default function Wrap() {
 
   const web3 = new Web3(window.ethereum);
    const  contract=   new web3.eth.Contract(abi.abi,"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A");
-   const  contract2=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
    const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
+   const  contract2=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
+   const  contract3=   new web3.eth.Contract(distrib,"0x32c6379B2978A9aB75993cA82e3ADc77dd50010C");
 
    console.log(contract.methods)
   useEffect(() => {
@@ -34,6 +36,10 @@ export default function Wrap() {
       setEpochIds("epochIds",_epochIds);
     const valus=  await contract2.methods.getDistributions().call()
       console.log("getDistributions",valus)
+      const dis=  await contract3.methods.getCurrentMonth().call()
+      console.log("getCurrentMonth",dis)
+      const disp=  await contract3.methods.getMonthToExpireNext().call()
+      console.log("getMonthToExpireNext",disp)
      
     }
     init();
