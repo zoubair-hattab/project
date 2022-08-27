@@ -13,9 +13,9 @@ export default function Wrap() {
   const [provider,setProvider]=useState([]);
   const [fee,setFee]=useState([]);
   const [bips,setBips]=useState([]);
-
-  // const  contract2=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
-   const contract1 = new Web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
+ 
+   const web3 = new Web3(window.ethereum);
+   const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
 
    useEffect(() => {
     async function init() {
