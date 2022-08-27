@@ -10,9 +10,7 @@ export default function Wrap() {
   const [balance, setBalance] = useState(0);
   const [account, setAccount] = useState("");
   const [epochIds, setEpochIds] = useState([]);
-  const [provider,setProvider]=useState([]);
-  const [fee,setFee]=useState([]);
-  const [bips,setBips]=useState([]);
+
  
    const web3 = new Web3(window.ethereum);
    const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
@@ -29,7 +27,7 @@ export default function Wrap() {
       const _epochIds = await contract1.methods
       .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
       .call();
-      setEpochIds("epochIds",_epochIds);
+      setEpochIds(_epochIds);
      
     }
     init();
@@ -73,34 +71,7 @@ if(chainId==19){
         }}
       >
         <div className="">
-        <button className="" onClick={setPlatformFeeBips}>
-        setPlatformFeeBips
-          </button>
-          <br/>
-          <input type="text" onChange={(e) => setBips(e.target.value)} />
-          <br/>
-          <br/>
-          <button className="" onClick={setPlatformFeeAccount}>
-        setPlatformFeeAccount
-          </button>
-          <br/>
-          <input type="text"  onChange={(e) => setFee(e.target.value)}/>
-          <br/>
-          <br/>
-
-        {
-        
-        account[0]=="0xC4d34d47b4e20CF1884646f877fA3Fe6192c4B26"? <><label className="">Change Delegation</label>
-        <select   onChange={(e) => setProvider(e.target.value)}>
-        <option >choose one or all provider </option>
-          <option  value="0xc9ac8f034d295962a6a975b717b691437605bbb6">Lena Instrument</option>
-        </select>
-        <button className="" onClick={change}>
-            Change
-          </button>
-        </>:""
-       }
-       <br></br>
+  
           <label className="">Wrap</label>
           <div style={{ width: "100%", margin: "15px 0" }}>
             <input
@@ -117,13 +88,10 @@ if(chainId==19){
 
           </label>
           <button className="" onClick={wrap}>
-            Wrap
-          </button>
-          <br></br>
-          <br></br>
-          <button className="" onClick={claim}>
           Claim Rewards
+
           </button>
+        
         </div>
       </div>
     </>
