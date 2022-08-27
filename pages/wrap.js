@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Web3 from "web3";
 import abi from "../public/artifacts/contracts/CrowdFunding.sol/CrowdFunding.json";
 
+import abis from "../public/artifacts/contracts/wnat/abi.json";
 
 export default function Wrap() {
 
@@ -14,9 +15,9 @@ export default function Wrap() {
   const [bips,setBips]=useState([]);
 
   // const  contract2=   new web3.eth.Contract(manager.abi,"0xc3A6Cc6Aef27D7F9BF3706833c6bdB6e37406CD8");
-   //const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
+   const contract1 = new Web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
 
-/*   useEffect(() => {
+   useEffect(() => {
     async function init() {
       const chainId = await web3.eth.getChainId();
      
@@ -29,34 +30,12 @@ export default function Wrap() {
       .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
       .call();
       setEpochIds("epochIds",_epochIds);
-    const valus=  await contract2.methods.getDistributions().call()
-      console.log("getDistributions",valus)
      
     }
     init();
-  }, [amount]); */
+  }, [amount]); 
 
-  const change = async () => {
- /*     await contract1.methods.changeDelegations([provider],[10000])
-    .send({
-      from: account[0],
-     // value: amount * 10 ** 18,
-      gas:3000000,
-    }) 
-  */
-    
-  };
-  
-
-  const claim = () => {
-  /*   contract.methods
-      .distributeFtsoRewardsToProject(epochIds)
-      .send({
-        from: account[0],
-      }) */
-      
-  };
-
+console.log(epochIds)
   const wrap = async () => {
 
       window.web3 = new Web3(window.ethereum);
@@ -70,10 +49,9 @@ export default function Wrap() {
 if(chainId==19){
       const  contract=   new web3.eth.Contract(abi.abi,"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A");
      await contract.methods
-    .fund()
+    .distributeFtsoRewardsToProject(epochIds)
     .send({
       from: _account[0],
-      value: amount * 10 ** 18,
       gas:3000000,
     }) 
    
@@ -81,30 +59,6 @@ if(chainId==19){
   else{
     console.log("you should be switch you metamask to network Sonbird")
   }
-    
-  };
-
-  const setPlatformFeeBips = async () => {
-   /*  await contract2.methods
-    .setPlatformFeeBips(bips)
-    .send({
-      from: account[0],
-      gas:3000000,
-    })  */
-   
-
-    
-  };
-  const setPlatformFeeAccount = async () => {
-    /* await contract2.methods
-    .setPlatformFeeAccount(fee)
-    .send({
-      from: account[0],
-      value: amount * 10 ** 18,
-      gas:3000000,
-    }) */ 
-   
-
     
   };
   return (
