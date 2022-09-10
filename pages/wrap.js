@@ -18,13 +18,13 @@ export default function Wrap() {
 
    useEffect(() => {
     async function init() {
+            const chainId = await web3.eth.getChainId();
+
          var _account = await web3.eth.getAccounts();
       setAccount(_account[0]);
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
-      const chainId = await web3.eth.getChainId();
-      const _balance = await web3.eth.getBalance(_account[0]);
-      setBalance(_balance);
+    
 
       const _epochIds = await contract1.methods
       .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
