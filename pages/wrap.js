@@ -14,13 +14,15 @@ export default function Wrap() {
  
    const web3 = new Web3(window.ethereum);
    const contract1 = new web3.eth.Contract(abis, "0xc5738334b972745067fFa666040fdeADc66Cb925");
+      const  contract=   new web3.eth.Contract(abi.abi,"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A");
 
    useEffect(() => {
     async function init() {
+         var _account = await web3.eth.getAccounts();
+      setAccount(_account[0]);
+      const _balance = await web3.eth.getBalance(_account[0]);
+      setBalance(_balance);
       const chainId = await web3.eth.getChainId();
-     
-      const _account = await web3.eth.getAccounts();
-      setAccount(_account);
       const _balance = await web3.eth.getBalance(_account[0]);
       setBalance(_balance);
 
@@ -28,6 +30,10 @@ export default function Wrap() {
       .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
       .call();
       setEpochIds(_epochIds);
+       const valss=      await contract.methods
+    .epochsWithUnclaimedStakerReward(_account[0])
+    .call() 
+ console.log(valss)
      
     }
     init();
@@ -35,25 +41,13 @@ export default function Wrap() {
 
 console.log(epochIds)
   const wrap = async () => {
-
-      window.web3 = new Web3(window.ethereum);
-      await ethereum.send('eth_requestAccounts');;
-      const web3 = window.web3;
-      var _account = await web3.eth.getAccounts();
-      setAccount(_account[0]);
-      const _balance = await web3.eth.getBalance(_account[0]);
-      setBalance(_balance);
-      const chainId = await web3.eth.getChainId();
-if(chainId==19){
-      const  contract=   new web3.eth.Contract(abi.abi,"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A");
      await contract.methods
     .distributeFtsoRewardsToProject(epochIds)
     .send({
       from: _account[0],
       gas:3000000,
     }) 
-   
-  }
+
   else{
     console.log("you should be switch you metamask to network Sonbird")
   }
