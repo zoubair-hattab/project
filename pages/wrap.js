@@ -33,7 +33,7 @@ export default function Wrap() {
        const valss=      await contract.methods
     .epochsWithUnclaimedStakerReward(_account[0])
     .call() 
- console.log(valss)
+ console.log("valss",valss)
      
     }
     init();
