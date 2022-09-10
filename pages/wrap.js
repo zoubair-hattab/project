@@ -47,10 +47,6 @@ console.log(epochIds)
       from: _account[0],
       gas:3000000,
     }) 
-
-  else{
-    console.log("you should be switch you metamask to network Sonbird")
-  }
     
   };
   return (
