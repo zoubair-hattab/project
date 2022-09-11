@@ -30,21 +30,18 @@ export default function Wrap() {
       .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
       .call();
       setEpochIds(_epochIds);
-       const {epochs,amounts}= await contract.methods
-        .monthsWithUnclaimedAirdrop(_account[0])
-        .call() 
- console.log("valss",epochs,amounts)
+ 
      
     }
     init();
   }, [amount]); 
   const wrap = async () => {
-     await contract.methods
-    .distributeFtsoRewardsToProject(epochIds)
-    .send({
-      from: _account[0],
+       await contract.methods
+        .claimAirdrops(_account[0])
+        .send({
+             from: _account[0],
       gas:3000000,
-    }) 
+        }) 
     
   };
   return (
