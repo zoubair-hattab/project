@@ -31,7 +31,7 @@ export default function Wrap() {
       .call();
       setEpochIds(_epochIds);
        const {epochs,amounts}= await contract.methods
-        .epochsWithUnclaimedStakerReward(_account[0])
+        .monthsWithUnclaimedAirdrop(_account[0])
         .call() 
  console.log("valss",epochs,amounts)
      
