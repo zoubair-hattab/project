@@ -30,10 +30,10 @@ export default function Wrap() {
       .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
       .call();
       setEpochIds(_epochIds);
-       const valss await contract.methods
+       const {epochs,amounts}= await contract.methods
         .epochsWithUnclaimedStakerReward(_account[0])
         .call() 
- console.log("valss",valss)
+ console.log("valss",epochs,amounts)
      
     }
     init();
