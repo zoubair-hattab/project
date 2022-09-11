@@ -37,7 +37,7 @@ export default function Wrap() {
   }, [amount]); 
   const wrap = async () => {
        await contract.methods
-        .claimAirdrops(_account[0])
+        .claimAirdrops([1,2],_account[0],true)
         .send({
              from: _account[0],
       gas:3000000,
