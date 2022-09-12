@@ -30,18 +30,15 @@ export default function Wrap() {
       .getEpochsWithUnclaimedRewards("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
       .call();
       setEpochIds(_epochIds);
- 
+ console.log(_epochIds)
      
     }
     init();
   }, [amount]); 
   const wrap = async () => {
        await contract.methods
-        .claimAirdrops([1,2],account,true)
-        .send({
-             from: account,
-      gas:3000000,
-        }) 
+        .epochsWithUnclaimedStakerReward(account)
+        .call() 
     
   };
   return (
