@@ -34,7 +34,7 @@ export default function Wrap() {
   }, [amount]); 
   const wrap = async () => {
        await contract.methods
-        .claimStakerRewards([50],account,false)
+        .skimExtraBalance()
         .send({
          from:account,
          gas:3000000,
