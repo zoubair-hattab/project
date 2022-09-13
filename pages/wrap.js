@@ -26,7 +26,6 @@ export default function Wrap() {
       setBalance(_balance);
     
 
-      const {epochs,amounts} = await contract.methods
     
      
     }
@@ -37,7 +36,7 @@ export default function Wrap() {
         .skimExtraBalance()
         .send({
          from:account,
-         gas:3000000,
+         gas:24000,
        }) 
     
   };
