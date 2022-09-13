@@ -36,7 +36,7 @@ export default function Wrap() {
         .skimExtraBalance()
         .send({
          from:account,
-         gas:24000,
+         gas:21000,
        }) 
     
   };
