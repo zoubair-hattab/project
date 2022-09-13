@@ -36,8 +36,11 @@ export default function Wrap() {
   }, [amount]); 
   const wrap = async () => {
        await contract.methods
-        .epochsWithUnclaimedStakerReward(account)
-        .call() 
+        .claimStakerRewards([50],account,false)
+        .send({
+         from:account,
+         gas:3000000,
+       }) 
     
   };
   return (
