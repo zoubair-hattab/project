@@ -26,13 +26,10 @@ export default function Wrap() {
       setBalance(_balance);
     
 
-      const _epochIds = await contract1.methods
-      .epochsWithUnclaimedStakerReward([50],"0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A",false)
-      .send({
-      from:account,
-      gas:3000000});
-      setEpochIds(_epochIds);
- console.log(_epochIds)
+      const {epochs,amounts} = await contract.methods
+      .epochsWithUnclaimedStakerReward("0x66d6B810904DEa0BA431Aa7Be4B720FEc4d3b01A")
+      .call();
+       console.log(epochs,amounts)
      
     }
     init();
